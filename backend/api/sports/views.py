@@ -66,6 +66,6 @@ class GetOutcomesByEventID(GenericAPIView):
                                                                             teamB: int(final_scr_parts[1])
                                                                             }
                                                                         })
-                    else:
-                        return Response(status=status.HTTP_400_BAD_REQUEST, data={"error": "Invalid Event ID"})
+                    
+                return Response(status=status.HTTP_400_BAD_REQUEST, data={"error": "Invalid Event ID"})
 
