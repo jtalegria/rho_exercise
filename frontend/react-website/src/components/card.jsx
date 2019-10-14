@@ -1,31 +1,58 @@
 import React, { Component } from "react";
-import StyledCard from "../styles/Card";
+import {Link} from "react-router-dom"
 
-export default function Card(props) {
-  return (
-    <StyledCard>
-      <div className="card">
-      <div className="card-image"></div>
-        <div className="card-text">
-          <span className="date">4 days ago</span>
-          <h2>Post One</h2>
-          <p>OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA OLA </p>
-        </div>
-        <div className="card-stats">
-            <div className="stat">
-                <div className="value">4 <sup>m</sup></div>
-                <div className="type">read</div>
+// STYLES
+import StyledCard from "../styles/Card-Style";
+import StyledLink from "../styles/StyledLink";
+
+class Card extends Component {
+  constructor() {
+    super();
+    this.state = {
+      data: {}
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://127.0.0.1:8000/sports/" + this.props.id)
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          data: data
+        })
+      );
+  }
+
+  render() {
+    const events_length = this.state.data.length;
+    return (
+      <StyledLink to={`/events/${this.props.id}`}>
+        <StyledCard imgUrl={this.props.imgUrl}>
+          <div className="card">
+            <div className="card-image"></div>
+            <div className="card-text">
+              <h2>{this.props.desc}</h2>
             </div>
-            <div className="stat border">
-                <div className="value">5123</div>
-                <div className="type">read</div>
+            <div className="card-stats">
+              <div className="stat">
+                <div className="value"></div>
+                <div className="type"></div>
+              </div>
+              <div className="stat">
+                <div className="value">{events_length}</div>
+                <div className="type">events</div>
+              </div>
+              <div className="stat">
+                <div className="value"></div>
+                <div className="type"></div>
+              </div>
             </div>
-            <div className="stat">
-                <div className="value">32</div>
-                <div className="type">read</div>
-            </div>
-        </div>
-      </div>
-    </StyledCard>
-  );
+          </div>
+        </StyledCard>
+        </StyledLink>
+      
+    );
+  }
 }
+
+export default Card;
