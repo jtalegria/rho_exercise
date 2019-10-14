@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from rest_framework import status
 from rest_framework.generics import GenericAPIView, ListAPIView
+from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
 
@@ -12,18 +13,18 @@ with open("/Users/jtalegria/Documents/GitHub/rho_exercise/backend/api/sports/jso
     sports = json_data['sports']
     ordered_sports = sorted(sports, key = lambda x: x['pos'])
 
-class GetAllSports(GenericAPIView):
+class GetAllSports(APIView):
     def get(self, request):
-        return Response(status=status.HTTP_200_OK, data=ordered_sports)
+        return Response(status=status.HTTP_200_OK, data=ordered_sports, headers={"Access-Control-Allow-Origin": "*"})
 
-class GetAllEventsBySportID(GenericAPIView):
+class GetAllEventsBySportID(APIView):
     def get(self, request, sport_id):
         sport_id = int(sport_id)
         for i in range(len(ordered_sports)):
             if ordered_sports[i]['id'] == sport_id:
                 comp = ordered_sports[i]['comp']
                 if not comp:
-                    return Response(status=status.HTTP_400_BAD_REQUEST, data={"warning": "There is no events for this Sport"})
+                    return Response(status=status.HTTP_200_OK, data=[])
 
                 list_events = []
                 for i in range (0, len(comp)):
@@ -35,7 +36,7 @@ class GetAllEventsBySportID(GenericAPIView):
                 return Response(status=status.HTTP_200_OK, data=list_events)
         return Response(status=status.HTTP_400_BAD_REQUEST, data={"error": "Invalid Sport ID"})
 
-class GetOutcomesByEventID(GenericAPIView):
+class GetOutcomesByEventID(APIView):
     def get(self, request, sport_id, event_id):
         sport_id = int(sport_id)
         event_id = int(event_id)
