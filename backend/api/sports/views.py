@@ -63,10 +63,16 @@ class GetOutcomesByEventID(APIView):
                         final_scr_parts = final_scr.split("-")
                         return Response(status=status.HTTP_200_OK, data={"outcome": final_scr, 
                                                                         "details": {
-                                                                            teamA: int(final_scr_parts[0]),
-                                                                            teamB: int(final_scr_parts[1])
+                                                                            "teamA": {
+                                                                                "name": teamA,
+                                                                                "score": int(final_scr_parts[0])
+                                                                            },
+                                                                            "teamB":{
+                                                                                "name": teamB,
+                                                                                "score": int(final_scr_parts[1])
                                                                             }
-                                                                        })
+                                                                        }
+                                                                    })
                     
                 return Response(status=status.HTTP_400_BAD_REQUEST, data={"error": "Invalid Event ID"})
 
