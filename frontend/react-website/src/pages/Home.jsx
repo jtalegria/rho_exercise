@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import Card from "./Card";
+import Card from "../components/Card"
+import Loader from "../components/Loader";
 
-import CenteredDiv from "../styles/CenteredDiv";
+import FlexWrapCentered from "../styles/FlexWrapCentered";
+import "../index.css";
 
 class Home extends Component {
   constructor() {
     super();
     this.state = {
       loading: false,
-      data: {},
+      data: {}
     };
   }
 
@@ -26,17 +28,26 @@ class Home extends Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, loading } = this.state;
     const data_length = Object.keys(data).length;
     const cards = [...Array(data_length)].map((e, i) => (
-      <Card key={i} id={data[i].id} desc={data[i].desc} imgUrl = {process.env.PUBLIC_URL + '/imgs/' + data[i].id + '.jpeg'} />
+      <Card
+        key={i}
+        id={data[i].id}
+        desc={data[i].desc}
+        imgUrl={process.env.PUBLIC_URL + "/imgs/" + data[i].id + ".jpeg"}
+      />
     ));
 
-    return (
-        <CenteredDiv>
-          {cards}
-        </CenteredDiv>
-    );
+    if (loading) {
+      return (
+        <FlexWrapCentered>
+          <Loader />
+        </FlexWrapCentered>
+      );
+    }
+
+    return <FlexWrapCentered>{cards}</FlexWrapCentered>;
   }
 }
 

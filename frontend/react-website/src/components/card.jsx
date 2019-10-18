@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 // STYLES
 import StyledCard from "../styles/Card-Style";
@@ -24,7 +24,8 @@ class Card extends Component {
   }
 
   render() {
-    const events_length = this.state.data.length;
+    const { data } = this.state;
+    const events_length = data.length;
     return (
       <StyledLink to={`/events/${this.props.id}`}>
         <StyledCard imgUrl={this.props.imgUrl}>
@@ -49,8 +50,7 @@ class Card extends Component {
             </div>
           </div>
         </StyledCard>
-        </StyledLink>
-      
+      </StyledLink>
     );
   }
 }

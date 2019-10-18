@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-import Home from "./components/Home"
-import Sport from "./components/Sport"
-import Page404 from "./components/Page404"
+import Home from "./pages/Home"
+import Sport from "./pages/Sport"
+import Page404 from "./pages/Page404"
 
 function App(){
   return (

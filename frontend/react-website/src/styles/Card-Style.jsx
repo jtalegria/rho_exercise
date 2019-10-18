@@ -16,6 +16,7 @@ const StyledCard = styled.div`
     transition: 0.5s ease;
     cursor: pointer;
     margin: 30px;
+    font-family: 'Quicksand', sans-serif;
   }
 
   .card-image {
