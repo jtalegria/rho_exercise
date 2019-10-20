@@ -6,9 +6,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import NotFound
 
-import json
+import os, json
 
-with open("/Users/jtalegria/Documents/GitHub/rho_exercise/backend/api/sports/json_files/data.json") as json_file:
+#with open("/Users/jtalegria/Documents/GitHub/rho_exercise/backend/api/sports/json_files/data.json") as json_file:
+with open(os.path.join(os.path.dirname(__file__), 'json_files/data.json')) as json_file:
     json_data = json.load(json_file)
     sports = json_data['sports']
     ordered_sports = sorted(sports, key = lambda x: x['pos'])
