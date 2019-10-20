@@ -10,7 +10,7 @@ const StyledCard = styled.div`
     font-family: roboto;
     border-radius: 18px;
     background: white;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
     text-align: center;
 
     transition: 0.5s ease;
@@ -56,7 +56,9 @@ const StyledCard = styled.div`
     grid-template-rows: 1fr;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background: rgb(255, 7, 110);
+    /*background: rgb(255, 7, 110);*/
+    /*background: #b1917b;*/
+    background: linear-gradient(to bottom right, #d0b4a0, #b1917b);
   }
 
   .card-stats .stat {
@@ -70,13 +72,13 @@ const StyledCard = styled.div`
 
   .card-stats .type {
     font-size: 11px;
-    font-weight: 300;
+    /*font-weight: 300;*/
     text-transform: uppercase;
   }
 
   .card-stats .value {
     font-size: 22px;
-    font-weight: 500;
+    /*font-weight: 500;*/
   }
 
   .card-stats .border {

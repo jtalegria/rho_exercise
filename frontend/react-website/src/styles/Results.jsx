@@ -28,7 +28,9 @@ const Results = styled.div`
     border-top-left-radius: 4px;
     border-bottom-right-radius: 4px;
     border-top-right-radius:4px;
-    background: rgb(255, 7, 110);
+    /*background: rgb(255, 7, 110);*/
+    /*background: linear-gradient(to bottom right, #50D5B7, #3fbfa2);*/
+    background: linear-gradient(to bottom right, #c5a289, #b1917b);
   }
 
   .card-stats .stat {
@@ -54,7 +56,7 @@ const Results = styled.div`
   .card-stats .value {
     font-size: 20px;
     font-weight: 500;
-    border-bottom: 3px solid rgb(172, 26, 87);
+    border-bottom: 3px solid #766152;
   }
 
 

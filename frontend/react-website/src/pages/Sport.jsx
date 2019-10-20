@@ -7,8 +7,10 @@ class Sport extends Component {
   constructor(props) {
     super(props);
     this.goBack = this.goBack.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
     this.state = {
       sportID: 0,
+      scrollingLock: false,
       data: {}
     };
   }
@@ -19,7 +21,7 @@ class Sport extends Component {
 
   componentDidMount() {
     const sportID = this.props.match.params.sportID;
-
+    window.addEventListener("scroll", this.handleScroll);
     fetch("http://127.0.0.1:8000/sports/" + sportID)
       .then(response => response.json())
       .then(data =>
@@ -30,23 +32,42 @@ class Sport extends Component {
       );
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    if (window.scrollY > 100) {
+      console.log("should lock");
+      this.setState({
+        scrollingLock: true
+      });
+    } else if (window.scrollY < 100) {
+      console.log("not locked");
+      this.setState({
+        scrollingLock: false
+      });
+    }
+  }
+
   render() {
     const { data, sportID } = this.state;
     const data_length = Object.keys(data).length;
     return (
-      <React.Fragment>
-        <img
-          src={previous}
-          alt="previous"
+      <div>
+        <button
+          className="round-button"
+          style={{ position: this.state.scrollingLock ? "fixed" : "relative" }}
           onClick={this.goBack}
-          style={{ width: "45px", height: "auto" }}
-        />
+        >
+          {"<"}
+        </button>
         <FlexWrapCentered>
           {Object.keys(data).map(key => (
             <Event key={key} eventID={data[key].id} sportID={sportID} />
           ))}
         </FlexWrapCentered>
-      </React.Fragment>
+      </div>
     );
   }
 }

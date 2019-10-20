@@ -40,7 +40,7 @@ class Card extends Component {
                 <div className="type"></div>
               </div>
               <div className="stat">
-                <div className="value">{events_length}</div>
+                <div className="value">{events_length === 0 ? "no" : events_length}</div>
                 <div className="type">events</div>
               </div>
               <div className="stat">

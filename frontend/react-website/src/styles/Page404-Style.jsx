@@ -47,7 +47,7 @@ const Page404 = styled.div`
     font-size: 14px;
     text-decoration: none;
     text-transform: uppercase;
-    background: #18e06f;
+    background: #d0b4a0;
     display: inline-block;
     padding: 15px 30px;
     border-radius: 5px;
@@ -57,7 +57,7 @@ const Page404 = styled.div`
     cursor: pointer
 
     :hover{
-        background: #2bcc71;
+        background: #b1917b;
       }
     }
   }

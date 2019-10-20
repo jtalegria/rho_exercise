@@ -1,0 +1,26 @@
+.backButton {
+  transition: 0.25s;
+  width: 45px;
+}
+
+.scrolled {
+  position: fixed;
+}
+
+.round-button {
+  display: block;
+  width: 45px;
+  height: 45px;
+  border: 2px solid #766152;
+  border-radius: 50%;
+  color: #766152;
+  text-align: center;
+  text-decoration: none;
+  background: transparent;
+  box-shadow: 0 0 3px gray;
+  font-size: 20px;
+  font-weight: regular;
+}
+.round-button:hover {
+  background: #e7d9cf;
+}
