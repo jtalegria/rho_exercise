@@ -7,7 +7,7 @@ const StyledCard = styled.div`
     grid-template-rows: 210px 150px 110px;
     grid-template-areas: "image" "text" "stats";
 
-    font-family: roboto;
+    /*font-family: roboto;*/
     border-radius: 18px;
     background: white;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);

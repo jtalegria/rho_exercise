@@ -1,0 +1,70 @@
+{
+    "tryLater":{
+      "PT": "Tente novamente mais tarde",
+      "EN": "Try again later"
+    },
+    "pageNotFound":{
+      "PT": "Página Inexistente",
+      "EN": "Page Not Found"
+    },
+    "goBack":{
+        "PT": "retroceder",
+        "EN": "go back"
+    },
+    "refresh":{
+        "PT": "atualizar",
+        "EN": "refresh"
+    },
+    "swalNoEvents":{
+        "PT": "Não há eventos para ",
+        "EN": "There are no events for "
+    },
+    "100":{
+        "PT": "Futebol",
+        "EN": "Football"
+    },
+    "600":{
+        "PT": "Ténis",
+        "EN": "Tennis"
+    },
+    "400":{
+        "PT": "Golfe",
+        "EN": "Golf"
+    },
+    "17500":{
+        "PT": "Críquete",
+        "EN": "Cricket"
+    },
+    "364600":{
+        "PT": "Rubgy de 13",
+        "EN": "Rugby League"
+    },
+    "601600":{
+        "PT": "Basquetebol",
+        "EN": "Basketball"
+    },
+    "2100":{
+        "PT": "Hoquei no Gelo",
+        "EN": "Ice Hockey"
+    },
+    "433100":{
+        "PT": "Baisebol",
+        "EN": "Baseball"
+    },
+    "1200":{
+        "PT": "Voleibol",
+        "EN": "Volleyball"
+    },
+    "4000":{
+        "PT": "Badmínton",
+        "EN": "Badminton"
+    },
+    "650":{
+        "PT": "Ténis de Mesa",
+        "EN": "Table Tennis"
+    },
+    "950":{
+        "PT": "Squash",
+        "EN": "Squash"
+    }
+  }

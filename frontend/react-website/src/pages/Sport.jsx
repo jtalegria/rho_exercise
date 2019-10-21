@@ -50,7 +50,7 @@ class Sport extends Component {
   }
 
   render() {
-    const { data, sportID } = this.state;    
+    const { data, sportID } = this.state;
     return (
       <div>
         <button

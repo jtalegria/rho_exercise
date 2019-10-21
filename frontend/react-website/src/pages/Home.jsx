@@ -6,7 +6,8 @@ import FlexWrapCentered from "../styles/FlexWrapCentered";
 import "../index.css";
 import Page404 from "./Page404";
 
-
+import translations from "../media/translations.json"
+import { get } from "lodash";
 
 class Home extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class Home extends Component {
     this.state = {
       loading: false,
       error: false,
+      countryCode: "",
       data: {}
     };
   }
@@ -30,26 +32,30 @@ class Home extends Component {
       )
       .catch(response => {
         if (response.status !== 200) {
-          console.log("erro 200");
           this.setState({
             error: true,
             loading: false
           });
         }
       });
+
+      fetch("http://ip-api.com/json")
+      .then(response => response.json())
+      .then(data => this.setState({countryCode: data.countryCode}));
   }
 
   render() {
-    console.log(this.state.data);
-    const { data, loading, error } = this.state;
+    const { data, loading, error, countryCode } = this.state;
     const data_length = Object.keys(data).length;
+    console.log(countryCode)
     const cards = [...Array(data_length)].map((e, i) => (
       <Card
         key={i}
         id={data[i].id}
-        desc={data[i].desc}
+        //desc={data[i].desc}
+        desc = {countryCode === "PT" ? get(translations, `${data[i].id}`.concat(".PT")) : get(translations, `${data[i].id}`.concat(".EN"))}
+        countryCode = {countryCode}
         imgUrl={process.env.PUBLIC_URL + "/imgs/" + data[i].id + ".jpeg"}
-        
       />
     ));
 

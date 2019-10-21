@@ -7,7 +7,7 @@ const Results = styled.div`
     grid-template-rows: 110px;
     grid-template-areas: "stats";
 
-    font-family: roboto;
+    /*font-family: roboto;*/
     border-radius: 18px;
     background: white;
     /*box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);*/
@@ -15,9 +15,8 @@ const Results = styled.div`
 
     transition: 0.5s ease;
     margin: 30px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
   }
-
 
   .card-stats {
     grid-area: stats;
@@ -27,7 +26,7 @@ const Results = styled.div`
     border-bottom-left-radius: 4px;
     border-top-left-radius: 4px;
     border-bottom-right-radius: 4px;
-    border-top-right-radius:4px;
+    border-top-right-radius: 4px;
     /*background: rgb(255, 7, 110);*/
     /*background: linear-gradient(to bottom right, #50D5B7, #3fbfa2);*/
     background: linear-gradient(to bottom right, #c5a289, #b1917b);
@@ -44,7 +43,7 @@ const Results = styled.div`
 
   .card-stats .divider {
     /*background: #fcfcfc;*/
-    transform: rotate(-30deg)
+    transform: rotate(-30deg);
   }
 
   .card-stats .type {
@@ -57,9 +56,47 @@ const Results = styled.div`
     font-size: 20px;
     font-weight: 500;
     border-bottom: 3px solid #766152;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 
 
+  @media (max-width: 599px) {
+    /* Medium - Phones */
+    .card {
+      grid-template-columns: 270px;
+      margin: 20px;
+    }
+    .card-stats {
+      grid-template-columns: 10fr 1fr 10fr;
+    }
+    .card-stats .value {
+      font-size: 12px;
+    }
+    .card-stats .type {
+      font-size: 15px;
+    }
+  }
 
+  @media (min-width: 600px) {
+    .card {
+      grid-template-columns: 500px;
+      margin: 20px;
+    }
+    .card-stats {
+      grid-template-columns: 15fr 1fr 15fr;
+    }
+    .card-stats .value {
+      font-size: 15px;
+    }
+    .card-stats .type {
+      font-size: 17px;
+    }
+  }
+
+  @media(min-width: 700px) {
+    display: flex;
+    flex-orientation: row;
+  }
 `;
 export default Results;

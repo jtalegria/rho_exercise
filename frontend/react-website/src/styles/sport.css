@@ -28,3 +28,7 @@
 body{
   font-family: 'Quicksand', sans-serif;
 }
+
+*:focus {
+  outline: none;
+}

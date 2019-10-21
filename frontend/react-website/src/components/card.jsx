@@ -5,6 +5,8 @@ import StyledCard from "../styles/Card-Style";
 import StyledLink from "../styles/StyledLink";
 import Swal from "sweetalert2";
 
+import translations from "../media/translations.json"
+
 class Card extends Component {
   constructor() {
     super();
@@ -26,7 +28,7 @@ class Card extends Component {
   render() {
     const { data } = this.state;
     const events_length = data.length;
-
+    const swalDescription = this.props.countryCode === "PT" ? translations.swalNoEvents.PT : translations.swalNoEvents.EN
     if (events_length === 0) {
       return (
         <div>
@@ -34,10 +36,14 @@ class Card extends Component {
             imgUrl={this.props.imgUrl}
             onClick={() =>
               Swal.fire({
-                text: "There is no events for ".concat(this.props.desc),
+                text: "".concat(swalDescription).concat(this.props.desc),
                 showCloseButton: true,
                 confirmButtonColor: "#d0b4a0",
-                focusConfirm: false
+                focusConfirm: false,
+                animation: false,
+                customClass: {
+                  popup: 'animated fadeInDown'
+                }
               })
             }
           >
@@ -52,8 +58,8 @@ class Card extends Component {
                   <div className="type"></div>
                 </div>
                 <div className="stat">
-                  <div className="value">no</div>
-                  <div className="type">events</div>
+                  <div className="value">{this.props.countryCode === "PT" ? "sem" : "no"}</div>
+                  <div className="type">{this.props.countryCode === "PT" ? "eventos" : "events"}</div>
                 </div>
                 <div className="stat">
                   <div className="value"></div>
@@ -81,7 +87,7 @@ class Card extends Component {
               </div>
               <div className="stat">
                 <div className="value">{events_length}</div>
-                <div className="type">events</div>
+                <div className="type">{this.props.countryCode === "PT" ? "eventos" : "events"}</div>
               </div>
               <div className="stat">
                 <div className="value"></div>

@@ -32,16 +32,16 @@ class Event extends Component {
     const teamB_score = get(data, "details.teamB.score");
     return (
         <Results>
-          <div class="card">
-            <div class="card-stats">
-              <div class="stat">
-                <div class="value">{teamA}</div>
-                <div class="type">{teamA_score}</div>
+          <div className="card">
+            <div className="card-stats">
+              <div className="stat">
+                <div className="value">{teamA}</div>
+                <div className="type">{teamA_score}</div>
               </div>
-              <div class="stat divider">VS.</div>
-              <div class="stat">
-                <div class="value">{teamB}</div>
-                <div class="type">{teamB_score}</div>
+              <div className="stat divider">VS.</div>
+              <div className="stat">
+                <div className="value">{teamB}</div>
+                <div className="type">{teamB_score}</div>
               </div>
             </div>
           </div>
