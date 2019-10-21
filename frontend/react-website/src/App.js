@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
 import Home from "./pages/Home"
 import Sport from "./pages/Sport"
 import Page404 from "./pages/Page404"
+
+import './styles/sport.css'
 
 function App(){
   return (

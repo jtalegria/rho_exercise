@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Event from "../components/Event";
-import previous from "../media/previous.png";
 import FlexWrapCentered from "../styles/FlexWrapCentered";
 
 class Sport extends Component {
@@ -51,8 +50,7 @@ class Sport extends Component {
   }
 
   render() {
-    const { data, sportID } = this.state;
-    const data_length = Object.keys(data).length;
+    const { data, sportID } = this.state;    
     return (
       <div>
         <button

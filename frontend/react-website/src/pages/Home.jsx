@@ -6,6 +6,8 @@ import FlexWrapCentered from "../styles/FlexWrapCentered";
 import "../index.css";
 import Page404 from "./Page404";
 
+
+
 class Home extends Component {
   constructor() {
     super();
@@ -47,6 +49,7 @@ class Home extends Component {
         id={data[i].id}
         desc={data[i].desc}
         imgUrl={process.env.PUBLIC_URL + "/imgs/" + data[i].id + ".jpeg"}
+        
       />
     ));
 

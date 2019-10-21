@@ -24,3 +24,7 @@
 .round-button:hover {
   background: #e7d9cf;
 }
+
+body{
+  font-family: 'Quicksand', sans-serif;
+}
